@@ -30,7 +30,7 @@ fetch('videos.json')
     levels.forEach(level => {
       if (totalHours[level.toLowerCase()]) {
         let p = document.createElement('p');
-        p.textContent = `Level: ${level}, Total hours: ${totalHours[level.toLowerCase()].toFixed(0)}`;
+        p.textContent = `${level} total hours: ${totalHours[level.toLowerCase()].toFixed(0)}`;
         summaryDiv.appendChild(p);
       }
     });
