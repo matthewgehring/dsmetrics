@@ -1,0 +1,61 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #444;
+    padding: 20px;
+}
+
+#videoSummary {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 300px;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#searchResults {
+    padding: 20px;
+}
+
+a {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #666;
+}
+
+#main-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    padding-bottom: 20px;
+}
