@@ -2,25 +2,40 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Readex+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<div id="main-container">
+    <div id="main-container">
 
-<h1>Dreaming Spanish Search Tool</h1>
+        <header>
+            <div class="logoContainer"><img src="/images/cover.png" alt="Site Logo"></div>
+            <h1>Dreaming Spanish Search Tool</h1>
+        </header>
+   
+        <section class="contentStats">
+        <!-- <section class="contentStatsBtn"> -->
+            <!-- <h2 id="revealButton"><span>Video Statistics</span> -->
+                <!-- <i id="downArrow" class="fa-solid fa-angle-down" style="color: #2d2d2d;"></i> -->
+            <!-- </h2> -->
+        <!-- </section> -->
+            <div id="videoSummary" class="statsContainer"></div>
+        </section>
+    
+        <section class="searchSection">
+            <h2>Video Search</h2>
+                <section class="searchBar">
+                    <input onkeypress="handleKeyPress(event)" type="text" id="searchInput" placeholder="Enter video keywords">
+                    <button onclick="searchVideos()">Search</button>
+                </section>
+            <h3>Search Results:</h3>
+            <div id="searchResults"></div>
+        </section>
 
-<h2>Hours Summary</h2>
-<div id="videoSummary"></div>
-
-<h2>Video Search</h2>
-
-<input type="text" id="searchInput" placeholder="Enter video keywords">
-<button onclick="searchVideos()">Search</button>
-
-<h3>Search Results:</h3>
-<div id="searchResults"></div>
-
+<!-- <script src="allStatistics.js"></script> -->
 <script src="script.js"></script>
-
 </div>
 </body>
 </html>

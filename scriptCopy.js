@@ -7,39 +7,55 @@ fetch('videos.json')
     calculateAndDisplayVideoSummary();
   });
 
-  function calculateAndDisplayVideoSummary() {
-    let totalHours = {};
-    let overallHours = 0;
-    const levels = ["Superbeginner", "Beginner", "Intermediate", "Advanced"];
-  
-    data.videos.forEach(video => {
-      const level = video.level;
-      const durationInHours = video.duration / 3600;
-  
-      if (!totalHours[level]) {
-        totalHours[level] = 0;
-      }
-  
-      totalHours[level] += durationInHours;
-      overallHours += durationInHours;
-    });
-  
-    let summaryDiv = document.getElementById('videoSummary');
-    summaryDiv.innerHTML = '';
-  
-    levels.forEach(level => {
-      if (totalHours[level.toLowerCase()]) {
-        let p = document.createElement('p');
-        p.textContent = `${level} total hours: ${totalHours[level.toLowerCase()].toFixed(0)}`;
-        summaryDiv.appendChild(p);
-      }
-    });
-  
-    let overallP = document.createElement('p');
-    overallP.textContent = `Overall hours across all levels: ${overallHours.toFixed(0)}`;
-    summaryDiv.appendChild(overallP);
-  }
-  
+function calculateAndDisplayVideoSummary() {
+  let totalHours = {};
+  let overallHours = 0;
+  const levels = ["Superbeginner", "Beginner", "Intermediate", "Advanced"];
+
+  data.videos.forEach(video => {
+    const level = video.level;
+    const durationInHours = video.duration / 3600;
+
+    if (!totalHours[level]) {
+      totalHours[level] = 0;
+    }
+
+    totalHours[level] += durationInHours;
+    overallHours += durationInHours;
+  });
+
+  let summaryDiv1 = document.getElementById('column-1');
+  summaryDiv1.innerHTML = '';
+  let summaryDiv2 = document.getElementById('column-2');
+  summaryDiv2.innerHTML = '';
+
+  levels.forEach(level => {
+    if (totalHours[level.toLowerCase()]) {
+      let p = document.createElement('p');
+      p.textContent = `${level} total hours:`;
+      summaryDiv1.appendChild(p);
+    }
+  });
+
+  levels.forEach(level => {
+    if (totalHours[level.toLowerCase()]) {
+      let p = document.createElement('p');
+      p.textContent = `${totalHours[level.toLowerCase()].toFixed(0)}`;
+      summaryDiv2.appendChild(p);
+    }
+  });
+
+  let summaryDiv = document.getElementById('summary'); // Corrected line
+
+  let overallP1 = document.createElement('p');
+  overallP1.textContent = `Overall hours across all levels:`;
+  summaryDiv.appendChild(overallP1);
+
+  let overallP2 = document.createElement('p');
+  overallP2.textContent = `${overallHours.toFixed(0)}`;
+  summaryDiv.appendChild(overallP2);
+}
+
 
 function searchVideos() {
   let searchString = document.getElementById('searchInput').value;
@@ -75,10 +91,4 @@ function displaySearchResults(results) {
     a.textContent = `${result.title} - Duration: ${Math.round(result.duration / 60)} minutes`;
     searchResultsDiv.appendChild(a);
   });
-}
-
-function handleKeyPress(event) {
-  if (event.key === 'Enter') {
-    searchVideos();
-  }
 }
