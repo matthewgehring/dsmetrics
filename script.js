@@ -27,18 +27,36 @@ fetch('videos.json')
     let summaryDiv = document.getElementById('videoSummary');
     summaryDiv.innerHTML = '';
   
+    let table = document.createElement('table');
+    summaryDiv.appendChild(table);
+  
     levels.forEach(level => {
       if (totalHours[level.toLowerCase()]) {
-        let p = document.createElement('p');
-        p.textContent = `${level} total hours: ${totalHours[level.toLowerCase()].toFixed(0)}`;
-        summaryDiv.appendChild(p);
+        let row = document.createElement('tr');
+        table.appendChild(row);
+  
+        let levelCell = document.createElement('td');
+        levelCell.textContent = level;
+        row.appendChild(levelCell);
+  
+        let hoursCell = document.createElement('td');
+        hoursCell.textContent = totalHours[level.toLowerCase()].toFixed(0);
+        row.appendChild(hoursCell);
       }
     });
   
-    let overallP = document.createElement('p');
-    overallP.textContent = `Overall hours across all levels: ${overallHours.toFixed(0)}`;
-    summaryDiv.appendChild(overallP);
+    let totalRow = document.createElement('tr');
+    table.appendChild(totalRow);
+  
+    let totalCell = document.createElement('td');
+    totalCell.textContent = 'Total';
+    totalRow.appendChild(totalCell);
+  
+    let totalHoursCell = document.createElement('td');
+    totalHoursCell.textContent = overallHours.toFixed(0);
+    totalRow.appendChild(totalHoursCell);
   }
+  
   
 
 function searchVideos() {
@@ -58,22 +76,39 @@ function displaySearchResults(results) {
   });
 
   let currentLevel = null;
+  let ul = document.createElement('ul');
 
   sortedResults.forEach(result => {
     if (result.level !== currentLevel) {
       // New level, add a heading
       let h3 = document.createElement('h3');
+      h3.className = result.level;
       const capitalized = result.level.charAt(0).toUpperCase() + result.level.slice(1);
       h3.textContent = `${capitalized}`;
       searchResultsDiv.appendChild(h3);
+      ul = document.createElement('ul');
+      searchResultsDiv.appendChild(ul);
       currentLevel = result.level;
     }
 
     // Add the video link
     let a = document.createElement('a');
     a.href = `https://www.dreamingspanish.com/watch?id=${result._id}`;
-    a.textContent = `${result.title} - Duration: ${Math.round(result.duration / 60)} minutes`;
-    searchResultsDiv.appendChild(a);
+    
+    let videoInfo = document.createElement('div');
+    videoInfo.className = 'video-info';
+    videoInfo.textContent = result.title;
+
+    let duration = document.createElement('div');
+    duration.className = 'duration';
+    duration.textContent = `${Math.round(result.duration / 60)} min`;
+    
+    videoInfo.appendChild(duration);
+    a.appendChild(videoInfo);
+    
+    let li = document.createElement('li');
+    li.appendChild(a);
+    ul.appendChild(li);
   });
 }
 
