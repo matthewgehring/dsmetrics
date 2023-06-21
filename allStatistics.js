@@ -12,3 +12,18 @@ revealButton.addEventListener('click', function() {
 });
 
 
+function toggleSummary() {
+    var summary = document.getElementById("videoSummary");
+    var toggleButton = document.getElementById("toggleButton");
+    if (summary.style.display === "none") {
+        summary.style.display = "block";
+        toggleButton.classList.remove('fa-chevron-up');
+        toggleButton.classList.add('fa-chevron-down');
+    } else {
+        summary.style.display = "none";
+        toggleButton.classList.remove('fa-chevron-down');
+        toggleButton.classList.add('fa-chevron-up');
+    }
+}
+
+

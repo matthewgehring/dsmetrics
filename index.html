@@ -14,30 +14,24 @@
             <h1>Dreaming Spanish Search Tool</h1>
         </header>
     </section>
-    <div id="main-container">
-        <section class="contentStatsContainer">
-            <section class="contentStats">
-                <section class="contentStatsBtn">
-                    <h2 id="revealButton"><span>Video Statistics</span>
-                        <i id="downArrow" class="fa-solid fa-angle-down" style="color: #2d2d2d;"></i>
-                    </h2>
+    <div id="main-container">   
+        <h2>Hours Summary 
+            <i id="toggleButton" class="fas fa-chevron-down" onclick="toggleSummary()"></i>
+        </h2>
+        <div id="videoSummary"></div>
+    
+    <section class="searchSectionContainer">
+        <section class="searchSection">
+            <h2>Video Search</h2>
+                <section class="searchBar">
+                    <input onkeypress="handleKeyPress(event)" type="text" id="searchInput" placeholder="Enter video keywords">
+                    <button onclick="searchVideos()">Search</button>
                 </section>
-                <div id="videoSummary" class="statsContainer"></div>
-            </section>
+            <h3>Search Results:</h3>
+            <div id="searchResults"></div>
         </section>
-        <section class="searchSectionContainer">
-            <section class="searchSection">
-                <h2>Video Search</h2>
-                    <section class="searchBar">
-                        <input onkeypress="handleKeyPress(event)" type="text" id="searchInput" placeholder="Enter video keywords">
-                        <button onclick="searchVideos()">Search</button>
-                    </section>
-                <h3>Search Results:</h3>
-                <div id="searchResults"></div>
-            </section>
-        </section>
-        <script src="allStatistics.js"></script>
-        <script src="script.js"></script>
-    </div>
-</body>
+    </section>
+    <script src="allStatistics.js"></script>
+    <script src="script.js"></script>
+    </body>
 </html>
