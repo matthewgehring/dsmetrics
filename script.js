@@ -111,3 +111,9 @@ function displaySearchResults(results) {
     ul.appendChild(li);
   });
 }
+
+function handleKeyPress(event) {
+  if (event.key === 'Enter') {
+    searchVideos();
+  }
+}
