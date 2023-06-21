@@ -8,34 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div id="main-container">
-
+    <section class="headerContainer">
         <header>
             <div class="logoContainer"><img src="/images/cover.png" alt="Site Logo"></div>
             <h1>Dreaming Spanish Search Tool</h1>
         </header>
-   
-        <section class="contentStats">
-        <!-- <section class="contentStatsBtn"> -->
-            <!-- <h2 id="revealButton"><span>Video Statistics</span> -->
-                <!-- <i id="downArrow" class="fa-solid fa-angle-down" style="color: #2d2d2d;"></i> -->
-            <!-- </h2> -->
-        <!-- </section> -->
-            <div id="videoSummary" class="statsContainer"></div>
-        </section>
-    
-        <section class="searchSection">
-            <h2>Video Search</h2>
-                <section class="searchBar">
-                    <input onkeypress="handleKeyPress(event)" type="text" id="searchInput" placeholder="Enter video keywords">
-                    <button onclick="searchVideos()">Search</button>
+    </section>
+    <div id="main-container">
+        <section class="contentStatsContainer">
+            <section class="contentStats">
+                <section class="contentStatsBtn">
+                    <h2 id="revealButton"><span>Video Statistics</span>
+                        <i id="downArrow" class="fa-solid fa-angle-down" style="color: #2d2d2d;"></i>
+                    </h2>
                 </section>
-            <h3>Search Results:</h3>
-            <div id="searchResults"></div>
+                <div id="videoSummary" class="statsContainer"></div>
+            </section>
         </section>
-
-<!-- <script src="allStatistics.js"></script> -->
-<script src="script.js"></script>
-</div>
+        <section class="searchSectionContainer">
+            <section class="searchSection">
+                <h2>Video Search</h2>
+                    <section class="searchBar">
+                        <input onkeypress="handleKeyPress(event)" type="text" id="searchInput" placeholder="Enter video keywords">
+                        <button onclick="searchVideos()">Search</button>
+                    </section>
+                <h3>Search Results:</h3>
+                <div id="searchResults"></div>
+            </section>
+        </section>
+        <script src="allStatistics.js"></script>
+        <script src="script.js"></script>
+    </div>
 </body>
 </html>
