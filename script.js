@@ -1,6 +1,6 @@
 let data;
 
-fetch('videos.json')
+fetch('/.netlify/functions/getvideos')
   .then(response => response.json())
   .then(jsonData => {
     data = jsonData;
@@ -117,3 +117,4 @@ function handleKeyPress(event) {
     searchVideos();
   }
 }
+
