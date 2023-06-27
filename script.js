@@ -94,6 +94,8 @@ function displaySearchResults(results) {
     // Add the video link
     let a = document.createElement('a');
     a.href = `https://www.dreamingspanish.com/watch?id=${result._id}`;
+    a.target="_blank";
+    a.rel="noopener noreferrer";
     
     let videoInfo = document.createElement('div');
     videoInfo.className = 'video-info';
