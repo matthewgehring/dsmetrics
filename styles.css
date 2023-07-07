@@ -286,7 +286,7 @@ ul {
 
   .video-title {
     display: inline-block;
-    width: 500px; /* adjust as needed */
+    width: 480px; /* adjust as needed */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -301,6 +301,13 @@ ul {
     animation: scroll 5s linear infinite;
 }
 
+.private-badge {
+    line-height: .5; /* adjust as needed */
+    font-size: 1rem; /* adjust as needed */
+    vertical-align: middle;
+    display: inline-block;
+  }
+  
   
   @keyframes scroll {
     0% { text-indent: 0px }

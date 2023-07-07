@@ -102,19 +102,20 @@ function displaySearchResults(results) {
 
     let titleText = document.createElement('span');
     titleText.className = 'video-title'; // Add a class to style the title
-    titleText.textContent = result.title; // No need to shorten the title here
+    titleText.textContent = `${result.title}`; // No need to shorten the title here
     videoInfo.appendChild(titleText); // Append the title after the button
     if (result.title.length >= 50) {
       titleText.classList.add('overflowing');
     }
     
-     if (result.private) {
+    if (result.private) {
       let privateBadge = document.createElement('span');
+      privateBadge.className = 'private-badge';
       privateBadge.textContent = "⭐";
       videoInfo.prepend(privateBadge);
       a.classList.add("private-video");
     }
-
+    
     let duration = document.createElement('div');
     duration.className = 'duration';
     duration.textContent = `${Math.round(result.duration / 60)} min`;
