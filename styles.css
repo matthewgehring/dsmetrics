@@ -274,3 +274,12 @@ ul {
 .advanced + ul a:hover {
     color: #ff2e65;
 }
+
+.private-video {
+    background-color: rgba(99, 84, 177, 0.1); /* A slight purple hue */
+  }
+
+  .premium-message {
+    color: #6354b1;
+    font-size: 0.8rem; /* Adjust the size to your liking */
+  }

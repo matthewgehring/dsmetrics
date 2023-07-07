@@ -99,7 +99,17 @@ function displaySearchResults(results) {
     
     let videoInfo = document.createElement('div');
     videoInfo.className = 'video-info';
-    videoInfo.textContent = result.title;
+
+    let title = result.title.length > 60 ? result.title.substr(0, 60) + "..." : result.title;
+
+    videoInfo.textContent = title;
+
+    if (result.private) {
+      videoInfo.textContent = `⭐ ${title}`; 
+      a.classList.add("private-video"); // Add a new class to the 'video-info' div
+    } else {
+      videoInfo.textContent = title;
+    }
 
     let duration = document.createElement('div');
     duration.className = 'duration';
