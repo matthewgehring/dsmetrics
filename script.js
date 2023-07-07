@@ -100,7 +100,7 @@ function displaySearchResults(results) {
     let videoInfo = document.createElement('div');
     videoInfo.className = 'video-info';
 
-    let title = result.title.length > 60 ? result.title.substr(0, 60) + "..." : result.title;
+    let title = result.title.length > 50 ? result.title.substr(0, 50) + "..." : result.title;
 
     videoInfo.textContent = title;
 
