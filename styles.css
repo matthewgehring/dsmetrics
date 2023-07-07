@@ -283,3 +283,26 @@ ul {
     color: #6354b1;
     font-size: 0.8rem; /* Adjust the size to your liking */
   }
+
+  .video-title {
+    display: inline-block;
+    width: 500px; /* adjust as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    text-align: left;  
+}
+
+.video-title.overflowing:hover {
+    text-overflow: clip;
+    white-space: nowrap;
+    word-break: keep-all;
+    animation: scroll 5s linear infinite;
+}
+
+  
+  @keyframes scroll {
+    0% { text-indent: 0px }
+    100% { text-indent: -100% }
+  }
