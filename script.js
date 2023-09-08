@@ -59,11 +59,28 @@ fetch('/.netlify/functions/getvideos')
   
   
 
-function searchVideos() {
-  let searchString = document.getElementById('searchInput').value;
-  let results = data.videos.filter(video => video.title.toLowerCase().includes(searchString.toLowerCase()));
-  displaySearchResults(results);
-}
+  function searchVideos() {
+    let searchString = document.getElementById('searchInput').value;
+    let results = data.videos.filter(video => video.title.toLowerCase().includes(searchString.toLowerCase()));
+    
+    // Calcula el tiempo total de los videos devueltos por la búsqueda
+    let totalTime = 0;
+    results.forEach(video => {
+      totalTime += video.duration;
+    });
+    totalTime = Math.round(totalTime / 60); // Convierte a minutos
+    
+    // Muestra el tiempo total en una nueva caja
+    let totalTimeBox = document.getElementById('totalTimeBox');
+    if (!totalTimeBox) {
+      totalTimeBox = document.createElement('div');
+      totalTimeBox.id = 'totalTimeBox';
+      document.body.insertBefore(totalTimeBox, document.getElementById('searchResults'));
+    }
+    totalTimeBox.innerHTML = `Total time: ${totalTime} min`;
+    
+    displaySearchResults(results);
+  }
 
 function displaySearchResults(results) {
   let searchResultsDiv = document.getElementById('searchResults');

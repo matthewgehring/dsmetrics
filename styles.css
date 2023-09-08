@@ -284,6 +284,14 @@ ul {
     font-size: 0.8rem; /* Adjust the size to your liking */
   }
 
+  .time-message {
+    color: #58cb8f;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .video-title {
     display: inline-block;
     width: 480px; /* adjust as needed */
